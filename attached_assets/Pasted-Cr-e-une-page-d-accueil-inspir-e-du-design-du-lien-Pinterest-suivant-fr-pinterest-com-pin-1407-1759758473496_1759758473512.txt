@@ -1,0 +1,65 @@
+Crée une **page d’accueil** inspirée du design du lien Pinterest suivant : fr.pinterest.com/pin/1407443630109263  
+Le design doit être moderne, dynamique, avec un fort impact visuel — idéal pour un artiste comme Axel Merryl.  
+
+**Spécifications de style :**  
+- Palette de couleurs : tons sombres (noir / anthracite) + accents lumineux (or, jaune, blanc chaud)  
+- Grands visuels en arrière-plan (image pleine largeur / sections en pleine largeur)  
+- Typographie expressive : titre en grande taille, police moderne, contrastes  
+- Effets de superposition : textes superposés sur images, transparences, overlays  
+- Sections en “scroll vertical” bien différenciées  
+
+**Structure de la page :**
+
+1. **Header / Hero section**  
+   - Fond visuel plein écran (image ou vidéo)  
+   - Overlay sombre semi-transparent pour assurer la lisibilité du texte  
+   - Grand titre (ex : “Axel Merryl”) + sous-titre (ex : “Humour & Musique”)  
+   - Un bouton d’appel à l’action (ex : “Découvrir”, “Écouter maintenant”)
+
+2. **Section “À propos / Biographie”**  
+   - Image à gauche, texte à droite (ou l’inverse)  
+   - Texte court, impactant, avec citation ou phrase forte
+
+3. **Section “Musique / Clips”**  
+   - Grille de miniatures cliquables (3 à 4 vidéos)  
+   - Hover : léger zoom / overlay informatif (titre, play icon)
+
+4. **Section “Prochains événements / Concerts”**  
+   - Liste ou cartes horizontales avec date, lieu, bouton “Réserver”
+
+5. **Galerie visuelle**  
+   - Grille ou mosaïque d’images  
+   - Possibilité de lightbox (cliquer pour agrandir)
+
+6. **Footer**  
+   - Réseaux sociaux  
+   - Contact / Booking  
+   - Copyright
+
+**Interactions & animations suggérées :**  
+- Fade in / slide in des sections au scroll  
+- Effet “parallax” sur arrière-plans  
+- Hover subtil sur images / boutons  
+- Transition douce entre sections
+
+---
+
+**Contraintes techniques :**  
+- Responsive (mobile / tablette / desktop)  
+- Chargement optimisé des images (lazy loading)  
+- Bonne lisibilité des textes sur fonds visuels  
+- CSS moderne (Flexbox / Grid)  
+- Prévoir les points de rupture (breakpoints) pour adaptabilité
+
+---
+
+**Instructions pour Replit / générateur de code :**  
+- Si tu utilises React : créer des composants pour chaque section (Hero, Bio, Clips, Événements, Galerie, Footer)  
+- Utilise des classes utilitaires (comme Tailwind) pour styliser rapidement  
+- Intègre des animations avec CSS ou librairies comme Framer Motion ou AOS (Animate On Scroll)  
+- Teste en mode mobile et desktop
+
+---
+
+Si tu veux, je peux te générer **le code complet (HTML / CSS / React)** pour cette page selon ce prompt, pour que tu puisses l’importer directement dans Replit — tu veux ça ?
+::contentReference[oaicite:0]{index=0}
