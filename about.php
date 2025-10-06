@@ -3,7 +3,7 @@ $page_title = 'À Propos';
 include 'includes/header.php'; 
 ?>
 
-    <section class="page-hero">
+    <section class="page-hero" style="background-image: url('attached_assets/stock_images/musician_portrait_dr_1f15e7d9.jpg');">
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
             <h1 class="page-title">À Propos</h1>

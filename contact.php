@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-    <section class="page-hero">
+    <section class="page-hero" style="background-image: url('attached_assets/stock_images/contact_communicatio_f4d3211b.jpg');">
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
             <h1 class="page-title">Contact</h1>

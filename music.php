@@ -3,7 +3,7 @@ $page_title = 'Musique';
 include 'includes/header.php'; 
 ?>
 
-    <section class="page-hero">
+    <section class="page-hero" style="background-image: url('attached_assets/stock_images/music_studio_recordi_5cf7a264.jpg');">
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
             <h1 class="page-title">Discographie</h1>
