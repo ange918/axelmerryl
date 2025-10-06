@@ -102,19 +102,20 @@ include 'includes/header.php';
             <div class="gallery-grid">
                 <?php
                 $gallery_images = [
-                    'attached_assets/stock_images/live_concert_crowd_a_6a96c8cf.jpg',
-                    'attached_assets/stock_images/live_concert_crowd_a_be19c96d.jpg',
-                    'attached_assets/stock_images/live_concert_crowd_a_c0ee4884.jpg',
-                    'attached_assets/stock_images/live_concert_crowd_a_155fa487.jpg',
-                    'attached_assets/stock_images/live_concert_crowd_a_8fbf1968.jpg',
-                    'attached_assets/stock_images/live_concert_crowd_a_9fb99b89.jpg'
+                    ['image' => 'attached_assets/stock_images/live_concert_crowd_a_6a96c8cf.jpg', 'caption' => 'Concert au Zénith - Paris 2024'],
+                    ['image' => 'attached_assets/stock_images/live_concert_crowd_a_be19c96d.jpg', 'caption' => 'Ambiance électrique en festival'],
+                    ['image' => 'attached_assets/stock_images/live_concert_crowd_a_c0ee4884.jpg', 'caption' => 'Performance live intimiste'],
+                    ['image' => 'attached_assets/stock_images/live_concert_crowd_a_155fa487.jpg', 'caption' => 'Foule en délire'],
+                    ['image' => 'attached_assets/stock_images/live_concert_crowd_a_8fbf1968.jpg', 'caption' => 'Tournée européenne 2024'],
+                    ['image' => 'attached_assets/stock_images/live_concert_crowd_a_9fb99b89.jpg', 'caption' => 'Connexion avec le public']
                 ];
                 
-                foreach ($gallery_images as $index => $image) {
+                foreach ($gallery_images as $index => $item) {
                     echo '<div class="gallery-item" data-index="' . $index . '">
-                            <img src="' . $image . '" alt="Concert photo ' . ($index + 1) . '" loading="lazy">
+                            <img src="' . $item['image'] . '" alt="' . $item['caption'] . '" loading="lazy">
                             <div class="gallery-overlay">
                                 <span class="zoom-icon">🔍</span>
+                                <p class="gallery-caption">' . $item['caption'] . '</p>
                             </div>
                           </div>';
                 }

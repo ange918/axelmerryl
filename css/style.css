@@ -549,25 +549,43 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 10, 10, 0.7);
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 100%);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 1;
     transition: var(--transition-smooth);
 }
 
 .gallery-item:hover .gallery-overlay {
-    opacity: 1;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 100%);
 }
 
 .gallery-item:hover img {
     transform: scale(1.1);
 }
 
+.gallery-caption {
+    color: var(--color-warm-white);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    z-index: 2;
+}
+
 .zoom-icon {
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--color-gold);
+    opacity: 0;
+    transition: var(--transition-smooth);
+    margin-bottom: 1rem;
+}
+
+.gallery-item:hover .zoom-icon {
+    opacity: 1;
 }
 
 .footer {
