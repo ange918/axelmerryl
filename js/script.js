@@ -121,4 +121,57 @@ document.addEventListener('DOMContentLoaded', function() {
             alert(`Réservation pour: ${venue}\n\nCette fonctionnalité sera bientôt disponible!`);
         });
     });
+
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+
+    const trackItems = document.querySelectorAll('.track-item');
+    const nowPlayingCover = document.querySelector('.now-playing-cover img');
+    const trackName = document.querySelector('.track-name');
+    const artistName = document.querySelector('.artist-name');
+
+    trackItems.forEach(track => {
+        const playBtn = track.querySelector('.track-play-btn');
+        
+        if (playBtn) {
+            playBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const title = track.getAttribute('data-track-title');
+                const album = track.getAttribute('data-track-album');
+                
+                if (trackName && artistName) {
+                    trackName.textContent = title;
+                    artistName.textContent = 'Axel Merryl';
+                }
+
+                trackItems.forEach(t => t.classList.remove('playing'));
+                track.classList.add('playing');
+            });
+        }
+
+        track.addEventListener('click', function() {
+            const title = this.getAttribute('data-track-title');
+            const album = this.getAttribute('data-track-album');
+            
+            if (trackName && artistName) {
+                trackName.textContent = title;
+                artistName.textContent = 'Axel Merryl';
+            }
+
+            trackItems.forEach(t => t.classList.remove('playing'));
+            this.classList.add('playing');
+        });
+    });
 });
