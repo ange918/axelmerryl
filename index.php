@@ -124,6 +124,44 @@ include 'includes/header.php';
         </div>
     </section>
 
+    <section id="temoignages" class="testimonials-section fade-in-scroll">
+        <div class="container">
+            <h2 class="section-title centered">Avis des Auditeurs</h2>
+            <div class="testimonials-slider">
+                <div class="slider-nav prev">&#10094;</div>
+                <div class="slider-nav next">&#10095;</div>
+                <div class="testimonials-track">
+                    <?php
+                    $testimonials = [
+                        ['quote' => 'Axel Merryl est un artiste exceptionnel ! Son énergie sur scène est contagieuse et sa musique touche le cœur. Un vrai moment de bonheur !', 'author' => 'Sophie Martin', 'role' => 'Fan depuis 3 ans'],
+                        ['quote' => 'Je suis allé à son concert au Zénith et c\'était magique. La façon dont il mélange humour et musique est unique. Un talent incroyable !', 'author' => 'Thomas Dubois', 'role' => 'Spectateur régulier'],
+                        ['quote' => 'Une découverte musicale extraordinaire. Ses textes sont profonds et sa voix envoutante. Je recommande vivement !', 'author' => 'Marie Leclerc', 'role' => 'Auditrice passionnée'],
+                        ['quote' => 'Axel a su me faire rire et pleurer dans la même soirée. C\'est rare de trouver un artiste aussi complet et authentique.', 'author' => 'Julien Moreau', 'role' => 'Mélomane'],
+                        ['quote' => 'Ses performances live sont à couper le souffle ! L\'ambiance était électrique et l\'émotion palpable. Une expérience inoubliable.', 'author' => 'Camille Bernard', 'role' => 'Fan club membre'],
+                        ['quote' => 'J\'ai assisté à plusieurs de ses concerts et à chaque fois je suis impressionné par son professionnalisme et sa proximité avec le public.', 'author' => 'Lucas Petit', 'role' => 'Suiveur fidèle'],
+                        ['quote' => 'La musique d\'Axel Merryl m\'accompagne au quotidien. Ses mélodies sont addictives et ses paroles résonnent en moi.', 'author' => 'Emma Rousseau', 'role' => 'Auditrice quotidienne'],
+                        ['quote' => 'Un artiste qui ne laisse personne indifférent. Son charisme et son talent font de chaque concert un moment mémorable.', 'author' => 'Alexandre Durand', 'role' => 'Amateur de spectacles'],
+                        ['quote' => 'Axel Merryl est une véritable révélation ! Sa capacité à créer une connexion avec son public est remarquable.', 'author' => 'Léa Fontaine', 'role' => 'Nouvelle fan'],
+                        ['quote' => 'Des paroles qui touchent, une voix qui porte, et une présence scénique incomparable. Axel est un artiste complet !', 'author' => 'Nicolas Vincent', 'role' => 'Critique musical amateur'],
+                        ['quote' => 'J\'ai eu la chance de le voir en festival et c\'était le meilleur moment de la journée. Un artiste à suivre absolument !', 'author' => 'Chloé Garnier', 'role' => 'Festivalière'],
+                        ['quote' => 'Axel Merryl m\'a fait redécouvrir l\'amour de la musique live. Chaque concert est une nouvelle aventure émotionnelle.', 'author' => 'Pierre Lambert', 'role' => 'Auditeur enthousiaste']
+                    ];
+                    
+                    foreach ($testimonials as $testimonial) {
+                        echo '<div class="testimonial-card">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-quote">' . $testimonial['quote'] . '</p>
+                                <p class="testimonial-author">' . $testimonial['author'] . '</p>
+                                <p class="testimonial-role">' . $testimonial['role'] . '</p>
+                              </div>';
+                    }
+                    ?>
+                </div>
+                <div class="slider-dots"></div>
+            </div>
+        </div>
+    </section>
+
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
         <span class="lightbox-prev">&#10094;</span>

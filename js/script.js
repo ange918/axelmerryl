@@ -139,6 +139,68 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const testimonialsSlider = document.querySelector('.testimonials-slider');
+    if (testimonialsSlider) {
+        const track = testimonialsSlider.querySelector('.testimonials-track');
+        const slides = testimonialsSlider.querySelectorAll('.testimonial-card');
+        const prevBtn = testimonialsSlider.querySelector('.slider-nav.prev');
+        const nextBtn = testimonialsSlider.querySelector('.slider-nav.next');
+        const dotsContainer = testimonialsSlider.querySelector('.slider-dots');
+        
+        let currentSlide = 0;
+        let autoSlideInterval;
+        
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetAutoSlide();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+        
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+        
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
     const trackItems = document.querySelectorAll('.track-item');
     const nowPlayingCover = document.querySelector('.now-playing-cover img');
     const trackName = document.querySelector('.track-name');
