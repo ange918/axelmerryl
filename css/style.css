@@ -1352,37 +1352,38 @@ body {
     }
     
     .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    
-    .section-title {
         font-size: 2rem;
     }
     
+    .hero-subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
     .page-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .cta-button {
-        padding: 0.8rem 2rem;
-        font-size: 0.95rem;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.85rem;
     }
     
     .cta-button-secondary {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
     }
     
     .bio-text {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .highlight-text {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .bio-grid {
@@ -1444,24 +1445,24 @@ body {
     }
     
     .event-venue {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
     
     .event-time {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .event-button {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
     }
     
     .date-day {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .date-month {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     
     .gallery-grid {
