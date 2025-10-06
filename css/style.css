@@ -118,6 +118,13 @@ body {
     box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .cta-button-secondary {
     display: inline-block;
     padding: 0.8rem 2rem;

@@ -9,7 +9,11 @@ include 'includes/header.php';
         <div class="hero-content fade-in">
             <h1 class="hero-title">Axel Merryl</h1>
             <p class="hero-subtitle">Humour & Musique</p>
-            <a href="#musique" class="cta-button">Découvrir</a>
+            <div class="hero-buttons">
+                <a href="about.php" class="cta-button">À Propos</a>
+                <a href="music.php" class="cta-button">Musique</a>
+                <a href="contact.php" class="cta-button">Contact</a>
+            </div>
         </div>
         <div class="scroll-indicator">
             <span></span>
