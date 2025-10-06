@@ -607,6 +607,10 @@ body {
     transition: var(--transition-smooth);
 }
 
+.social-link i {
+    font-size: 24px;
+}
+
 .social-link:hover {
     background: linear-gradient(135deg, var(--color-gold), var(--color-yellow));
     color: var(--color-dark);
