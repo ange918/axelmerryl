@@ -80,19 +80,23 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxImg.src = galleryImages[currentImageIndex];
     }
 
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => showLightbox(index));
-    });
+    if (galleryItems.length > 0 && lightbox && lightboxClose) {
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => showLightbox(index));
+        });
 
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxNext.addEventListener('click', showNextImage);
-    lightboxPrev.addEventListener('click', showPrevImage);
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', showNextImage);
+        lightboxPrev.addEventListener('click', showPrevImage);
+    }
 
-    lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
+    if (lightbox) {
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
 
     document.addEventListener('keydown', function(e) {
         if (!lightbox.classList.contains('active')) return;
