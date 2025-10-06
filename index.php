@@ -10,9 +10,7 @@ include 'includes/header.php';
             <h1 class="hero-title">Axel Merryl</h1>
             <p class="hero-subtitle">Humour & Musique</p>
             <div class="hero-buttons">
-                <a href="about.php" class="cta-button">À Propos</a>
-                <a href="music.php" class="cta-button">Musique</a>
-                <a href="contact.php" class="cta-button">Contact</a>
+                <a href="about.php" class="cta-button">Découvrez-moi</a>
             </div>
         </div>
         <div class="scroll-indicator">
