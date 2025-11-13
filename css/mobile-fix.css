@@ -90,3 +90,13 @@ body {
 .carousel-track:hover {
     animation-play-state: paused !important;
 }
+
+/* Fix pour que les images du carousel ne soient pas coupées */
+.carousel-slide img {
+    object-fit: contain !important;
+    background: rgba(26, 26, 26, 0.3);
+}
+
+.carousel-slide {
+    background: rgba(10, 10, 10, 0.5);
+}
