@@ -367,3 +367,67 @@ document.addEventListener('DOMContentLoaded', function() {
             carouselTrack.appendChild(clone);
         });
     }
+
+    // Video Modal Functionality
+    const videoModal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('youtubePlayer');
+    const videoModalClose = document.querySelector('.video-modal-close');
+    
+    function extractYouTubeID(url) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    }
+    
+    function openVideoModal(videoUrl) {
+        const videoId = extractYouTubeID(videoUrl);
+        if (videoId) {
+            videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    function closeVideoModal() {
+        videoPlayer.src = '';
+        videoModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    const latestClipCards = document.querySelectorAll('.latest-clip-card');
+    latestClipCards.forEach(card => {
+        const thumbnail = card.querySelector('.latest-clip-thumbnail');
+        const watchButton = card.querySelector('.watch-button');
+        
+        if (thumbnail && watchButton) {
+            const videoUrl = watchButton.getAttribute('href');
+            
+            thumbnail.addEventListener('click', function(e) {
+                e.preventDefault();
+                openVideoModal(videoUrl);
+            });
+            
+            watchButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                openVideoModal(videoUrl);
+            });
+        }
+    });
+    
+    if (videoModalClose) {
+        videoModalClose.addEventListener('click', closeVideoModal);
+    }
+    
+    if (videoModal) {
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
+            closeVideoModal();
+        }
+    });
