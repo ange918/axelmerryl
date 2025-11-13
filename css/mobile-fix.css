@@ -11,24 +11,18 @@ body {
     position: relative;
 }
 
-* {
-    max-width: 100%;
-}
-
-.container-full {
-    overflow-x: hidden;
-}
-
+/* Permet au carousel de fonctionner tout en évitant le scroll horizontal */
 .carousel-gallery-section {
     overflow-x: hidden !important;
 }
 
 .carousel-container {
-    overflow-x: hidden !important;
+    overflow: hidden !important;
 }
 
+/* Le carousel-track doit pouvoir déborder pour l'animation */
 .carousel-track {
-    overflow-x: hidden !important;
+    max-width: none !important;
 }
 
 /* Fix pour mobile */
