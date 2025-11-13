@@ -1,0 +1,71 @@
+🔧 OBJECTIF :
+Inspecte tout le code de mon site web et applique les modifications suivantes avec précision.
+
+---
+
+🏠 PAGE D’ACCUEIL :
+
+1. Remplacer la section **"Musique et clips"** par une section **"Dernière sortie"**.  
+   → Cette section doit afficher **4 vidéos** : les **derniers clips de l’artiste** (format grille ou slider moderne).  
+   → Chaque vidéo a : une image miniature, le titre du clip, et un bouton "Regarder".
+
+2. Transformer la **section Galerie** en **bande roulante (carousel défilant automatiquement)**.  
+   → Elle doit contenir **50 images**, affichées horizontalement avec défilement fluide infini.  
+   → Design responsive et fluide (ex. effet défilement continu type “marquee” moderne).
+
+3. Ajuster la **section “Avis des auditeurs”** :  
+   → Harmoniser la taille des cards,  
+   → Centrer le texte et les étoiles,  
+   → Ajouter un léger effet hover (zoom ou ombre).
+
+---
+
+ℹ️ PAGE À PROPOS :
+
+1. Dans la **section Trophées et Nominations**, créer **3 cards** :
+   - **BÉNIN SHOWBIZ AWARDS**
+   - **ARAWO AMBASSADEUR AWARDS**
+   - **PRIMUD**
+
+   Chaque card contient :
+   - Une **image** (trophée ou logo),
+   - Un **titre** (nom du prix),
+   - Une **description courte**,
+   - Un **bouton “En savoir plus”**.
+
+2. Lorsqu’on clique sur “En savoir plus” :
+   → Ouvrir un **onglet (ou modal)** qui affiche les **catégories** dans lesquelles l’artiste a reçu des trophées.  
+   → Ces catégories s’affichent sous forme de **cards simples** (image, titre, description, **sans bouton**).
+
+---
+
+🎵 PAGE MUSIQUE :
+
+1. Remplacer la **section “Album et EP”** par une seule section **“Album”**.
+
+2. Il n’a actuellement qu’un seul album : **TEMPÉRATURE**  
+   → Ajouter : image de l’album, courte description, et un **bouton “Écouter l’album”**.
+
+3. Quand on clique sur **“Écouter l’album”** :
+   → Ouvrir une **nouvelle page** affichant la **playlist complète (12 titres)** du projet,  
+   → Présenter les titres dans un **style Spotify** :  
+     - Image miniature,  
+     - Nom du titre,  
+     - Durée,  
+     - Bouton play.
+
+4. Après cette section, afficher la section **Titres populaires** (inchangée ou légèrement modernisée).
+
+---
+
+💅 DESIGN :
+- Style moderne et fluide (animations légères, responsive).  
+- Respecter la charte actuelle du site.  
+- Conserver les couleurs, polices et styles déjà utilisés.
+
+---
+
+🧩 INSTRUCTIONS :
+- Inspecte tout le code du site avant de modifier.
+- Mets à jour le HTML, CSS et JS nécessaires.
+- N’oublie pas d’adapter les liens de navigation et d’assurer la cohérence entre les pages.

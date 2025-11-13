@@ -243,3 +243,127 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+    // Trophy Modal Functionality
+    const trophyModal = document.getElementById('trophyModal');
+    const trophyBtns = document.querySelectorAll('.trophy-details-btn');
+    const modalClose = document.querySelector('.trophy-modal-close');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+
+    // Trophy data for each award
+    const trophyData = {
+        bsa: {
+            title: 'BÉNIN SHOWBIZ AWARDS',
+            categories: [
+                {
+                    title: 'BSA d\'Or (Meilleur Artiste de l\'Année)',
+                    year: '2023',
+                    description: 'Décerné à Axel Merryl pour son tube « Kimi » lors de la cérémonie du 15 décembre 2023.',
+                    image: 'attached_assets/stock_images/trophé 1.jpeg'
+                },
+                {
+                    title: 'Meilleur Clip de l\'Année',
+                    year: '2023',
+                    description: 'Remis au clip de « Kimi », une production visuelle exceptionnelle qui a marqué l\'année.',
+                    image: 'attached_assets/stock_images/trophé 2.jpeg'
+                },
+                {
+                    title: 'Meilleur Single de l\'Année',
+                    year: '2023',
+                    description: 'Le single « Kimi » a été sacré meilleur titre de l\'année pour son impact musical.',
+                    image: 'attached_assets/stock_images/trophé3.jpeg'
+                }
+            ]
+        },
+        arawo: {
+            title: 'ÀRÀWÒ AMBASSADEUR AWARDS',
+            categories: [
+                {
+                    title: 'Meilleur Artiste Masculin Bénin',
+                    year: '2025',
+                    description: 'Lors de la 5ᵉ édition des Ambassadeur Awards à Cotonou, Axel Merryl a été sacré meilleur artiste masculin du Bénin.',
+                    image: 'attached_assets/stock_images/trophé 4.jpeg'
+                },
+                {
+                    title: 'Meilleure Collaboration de l\'Année',
+                    year: '2025',
+                    description: 'Prix de la meilleure collaboration pour son duo avec le groupe Toofan sur le single « Gba Gba », sorti en avril 2025.',
+                    image: 'attached_assets/stock_images/trophé 5.jpeg'
+                }
+            ]
+        },
+        primud: {
+            title: 'PRIMUD - PRIX INTERNATIONAUX DE LA MUSIQUE URBAINE',
+            categories: [
+                {
+                    title: 'Meilleur Artiste de l\'Afrique de l\'Ouest',
+                    year: '2024',
+                    description: 'Décerné à Axel Merryl lors de la 9ᵉ édition des PRIMUD à Abidjan (10 novembre 2024), reconnaissant son influence dans la région.',
+                    image: 'attached_assets/stock_images/axel-merryl-primud-meilleur-artiste-afrique-de-louest.jpg'
+                }
+            ]
+        }
+    };
+
+    function openTrophyModal(awardKey) {
+        const data = trophyData[awardKey];
+        if (!data) return;
+
+        modalTitle.textContent = data.title;
+        
+        let categoriesHTML = '<div class="trophy-category-grid">';
+        data.categories.forEach(category => {
+            categoriesHTML += `
+                <div class="trophy-category-card">
+                    <img src="${category.image}" alt="${category.title}" loading="lazy" />
+                    <h4>${category.title}</h4>
+                    <p class="trophy-year">${category.year}</p>
+                    <p>${category.description}</p>
+                </div>
+            `;
+        });
+        categoriesHTML += '</div>';
+        
+        modalBody.innerHTML = categoriesHTML;
+        trophyModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeTrophyModal() {
+        trophyModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (trophyBtns.length > 0 && trophyModal) {
+        trophyBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const awardKey = this.getAttribute('data-award');
+                openTrophyModal(awardKey);
+            });
+        });
+
+        modalClose.addEventListener('click', closeTrophyModal);
+
+        trophyModal.addEventListener('click', function(e) {
+            if (e.target === trophyModal) {
+                closeTrophyModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && trophyModal.classList.contains('active')) {
+                closeTrophyModal();
+            }
+        });
+    }
+
+    // Duplicate carousel slides for seamless infinite loop
+    const carouselTrack = document.querySelector('.carousel-track');
+    if (carouselTrack) {
+        const slides = carouselTrack.querySelectorAll('.carousel-slide');
+        slides.forEach(slide => {
+            const clone = slide.cloneNode(true);
+            carouselTrack.appendChild(clone);
+        });
+    }

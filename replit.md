@@ -6,6 +6,18 @@ This is a modern, visually striking portfolio website for French artist Axel Mer
 
 The project creates an immersive experience with parallax effects, fade-in animations, and comprehensive mobile responsive design. Key sections include a hero landing, biography, music/clips gallery, testimonials slider, visual gallery with descriptive captions, upcoming events, and footer with social links.
 
+## Recent Changes (November 2025)
+
+- **Homepage Latest Release Section**: Replaced "Musique & Clips" section with "Dernière Sortie" featuring 4 latest video clips (KIMI, TITULAIRE, JULIE, CÉLIBATAIRE) with view counts, badges (Nouveau, Tendance, Populaire, Récent), and direct YouTube links.
+- **Infinite Scroll Gallery Carousel**: Transformed static 6-image gallery into infinite horizontal scrolling carousel with 50 images, CSS keyframe animation (120s duration), gradient edge masks, hover-to-pause functionality, and seamless loop via JavaScript cloning.
+- **Enhanced Testimonials**: Harmonized testimonial card heights (min-height: 350px), centered all text and star ratings, added hover effects with scale transformation and enhanced box-shadow for better visual feedback.
+- **Trophies Restructure (About Page)**: Consolidated individual trophy cards into 3 main award categories (BÉNIN SHOWBIZ AWARDS, ÀRÀWÒ AMBASSADEUR AWARDS, PRIMUD) with featured images, descriptions, and "En savoir plus" buttons.
+- **Trophy Modal System**: Implemented reusable modal component with dynamic content population, keyboard navigation (Escape key), backdrop click-to-close, and smooth fade-in/slide-in animations displaying trophy categories for each award.
+- **Album Feature Section (Music Page)**: Replaced "Albums & EPs" multi-card layout with single featured album section for TEMPÉRATURE, including large cover art, detailed description, metadata (12 tracks, 48:30 duration), and primary CTA button.
+- **TEMPÉRATURE Album Playlist Page**: Created new dedicated page (temperature-album.html) with Spotify-style interface featuring hero section with album cover, 12-track playlist with mini thumbnails, play buttons, durations, artist credits, and back-to-music navigation.
+- **CSS Enhancements**: Added 800+ lines of new CSS including carousel animations, modal overlays, album playlist layouts, trophy cards, and mobile responsive breakpoints for all new sections.
+- **JavaScript Extensions**: Extended script.js with trophy modal handlers, carousel cloning logic, enhanced event listeners for all new interactive elements.
+
 ## Recent Changes (October 2025)
 
 - **PHP to HTML Migration**: All PHP files (index.php, about.php, music.php, contact.php) converted to static HTML. Header and footer content integrated directly into each page.
@@ -177,3 +189,10 @@ This is a fully static frontend application with no backend, database, or build 
 - Integration with a CMS for dynamic content
 - Addition of backend services (contact form submission, event management)
 - Performance optimizations (image compression, lazy loading, CDN integration)
+
+### New Files Added (November 2025)
+
+- **temperature-album.html** - Dedicated album playlist page for TEMPÉRATURE with Spotify-style track listing, hero section, and full navigation
+- **Enhanced CSS (800+ lines)** - New styles for carousel, modal, album sections, and responsive breakpoints
+- **Extended JavaScript** - Modal handlers, carousel cloning, and interactive element listeners
+
