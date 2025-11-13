@@ -1,0 +1,89 @@
+🎯 OBJECTIF :
+Inspecte le code complet du site et crée un **Dashboard Administrateur** protégé par mot de passe, pour gérer les ÉVÉNEMENTS et la GALERIE.
+
+---
+
+## 🔐 ACCÈS ADMIN
+
+- L’accès au dashboard se fait via l’URL `/admin`.
+- Le mot de passe par défaut est : **ELLEOAXEL**
+- Lors de la première connexion, le système demande ce mot de passe.
+- Après connexion réussie :
+  - L’administrateur peut **changer le mot de passe** via une section "Paramètres" dans le dashboard.
+  - Le nouveau mot de passe doit être enregistré de manière sécurisée (dans un fichier local ou base de données, pas en clair dans le code).
+  - Le changement de mot de passe nécessite l’ancien mot de passe pour validation.
+
+---
+
+## 🗓️ PARTIE 1 — GESTION DES ÉVÉNEMENTS
+
+Depuis le dashboard, l’administrateur peut :
+
+- Ajouter un événement avec les champs :
+  - 📌 Nom de l’événement
+  - 📅 Date
+  - 🏙️ Lieu
+  - 🖼️ Image (affiche du concert)
+  - 📝 Description
+  - 🔗 Lien du site d’achat de tickets (pour le bouton “Réserver”)
+
+- Modifier ou supprimer un événement existant.
+
+Les événements ajoutés s’affichent automatiquement dans la **section “Prochains événements”** du site public, avec :
+- L’image
+- Le nom, la date, le lieu, la description
+- Le bouton **“Réserver”**, qui ouvre le lien externe dans un nouvel onglet (`target="_blank"`)
+
+➡️ Design du bouton cohérent avec le site existant.  
+➡️ Mise en page responsive (mobile/tablette/PC).
+
+---
+
+## 🖼️ PARTIE 2 — GESTION DE LA GALERIE
+
+Depuis le même dashboard :
+- L’administrateur peut **ajouter ou supprimer des images** dans la galerie.
+- Les nouvelles images s’ajoutent automatiquement à la **bande roulante** déjà présente sur la page d’accueil.
+- Interface claire avec aperçu (miniatures des images déjà en ligne).
+
+---
+
+## ⚙️ PARTIE 3 — INTERFACE DU DASHBOARD
+
+Structure du dashboard :
+- Barre latérale (ou menu en haut) avec onglets :
+  - “Événements”
+  - “Galerie”
+  - “Paramètres” (pour changer le mot de passe)
+  - “Déconnexion”
+- Chaque onglet affiche son contenu correspondant.
+- Design sobre, cohérent avec la charte graphique du site (même couleurs et typographies).
+- Interface responsive et fluide (mobile/PC).
+
+---
+
+## 💾 SAUVEGARDE DES DONNÉES
+
+- Les événements et images doivent être enregistrés dans des fichiers JSON ou une base légère (ex: SQLite ou Firebase).
+- Le mot de passe est stocké de manière sécurisée (haché).
+- Lorsqu’un événement ou une image est ajouté/supprimé, la mise à jour est visible immédiatement sur le site public.
+
+---
+
+## 💅 EXIGENCES GÉNÉRALES
+
+- Respecter le design existant du site.
+- Tout doit être 100 % responsive.
+- Le dashboard ne doit pas casser les sections déjà modifiées (musique, dernière sortie, etc.).
+- Vérifier que le bouton “Réserver” fonctionne bien pour les événements avec lien de ticket.
+- Ajouter des animations simples pour les transitions du dashboard (si possible).
+
+---
+
+## 🧩 INSTRUCTIONS À SUIVRE :
+
+1️⃣ Inspecte le code actuel du site.  
+2️⃣ Crée une page `/admin` avec un système d’authentification (mot de passe par défaut : **ELLEOAXEL**).  
+3️⃣ Implémente les fonctionnalités de gestion des événements et de la galerie.  
+4️⃣ Crée la section "Paramètres" pour permettre de **changer le mot de passe** admin.  
+5️⃣ Vérifie que toutes les modifications sont fonctionnelles, stables et bien intégrées.
