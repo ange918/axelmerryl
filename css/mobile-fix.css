@@ -72,3 +72,21 @@ body {
         margin: 0 0.25rem;
     }
 }
+
+/* Force l'animation infinie du carousel */
+.carousel-track {
+    animation: scroll-carousel 120s linear infinite !important;
+}
+
+@keyframes scroll-carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.carousel-track:hover {
+    animation-play-state: paused !important;
+}
