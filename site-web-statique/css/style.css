@@ -2911,3 +2911,13 @@ body {
         padding: 0 1rem;
     }
 }
+
+/* Cacher les points de pagination des témoignages */
+.testimonials-section .slider-dots {
+    display: none !important;
+}
+
+/* Ajouter de l'espace entre les témoignages et le footer */
+#temoignages {
+    margin-bottom: 4rem;
+}
