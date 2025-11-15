@@ -151,11 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const nextBtn = testimonialsSlider.querySelector('.slider-nav.next');
         const dotsContainer = testimonialsSlider.querySelector('.slider-dots');
         
-        // Vérification que tous les éléments nécessaires existent
-        if (!dotsContainer || !track || slides.length === 0) {
-            return;
-        }
-        
         let currentSlide = 0;
         let autoSlideInterval;
         
@@ -170,9 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const dots = dotsContainer.querySelectorAll('.slider-dot');
         
         function updateSlider() {
-            if (track) {
-                track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            }
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
             });
@@ -199,19 +192,15 @@ document.addEventListener('DOMContentLoaded', function() {
             autoSlideInterval = setInterval(nextSlide, 5000);
         }
         
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetAutoSlide();
-            });
-        }
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
         
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetAutoSlide();
-            });
-        }
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
         
         autoSlideInterval = setInterval(nextSlide, 5000);
     }
