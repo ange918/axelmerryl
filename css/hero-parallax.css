@@ -1,0 +1,115 @@
+/* HERO PARALLAX - Section immersive avec effet parallax */
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.hero-image {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.1s ease-out;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.parallax-bg {
+    will-change: transform;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 10, 10, 0.8) 0%,
+        rgba(26, 26, 26, 0.6) 100%
+    );
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    transition: transform 0.1s ease-out;
+}
+
+.parallax-text {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    color: var(--color-warm-white);
+    letter-spacing: 0.3em;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+/* Responsive - Désactive le parallax souris sur mobile pour de meilleures performances */
+@media (max-width: 768px) {
+    .hero-image {
+        top: -5%;
+        left: -5%;
+        width: 110%;
+        height: 110%;
+    }
+    
+    .hero-section {
+        perspective: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-image img {
+        animation: none;
+    }
+    
+    .parallax-bg,
+    .parallax-text {
+        transition: none;
+    }
+}

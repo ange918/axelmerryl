@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Accueil - Axel Merryl - Humour & Musique</title>
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/hero-parallax.css" />
         <link rel="stylesheet" href="css/mobile-fix.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,17 +49,17 @@
         </header>
 
         <section id="hero" class="hero-section">
-            <div class="hero-image parallax-bg">
+            <div class="hero-image parallax-bg" data-parallax-speed="20">
                 <img
                     src="attached_assets/stock_images/1.jpeg"
                     alt="Concert Axel Merryl"
                     loading="eager" />
             </div>
             <div class="hero-overlay"></div>
-            <div class="hero-content fade-in">
-                <h1 class="hero-title">Axel Merryl</h1>
-                <p class="hero-subtitle">Artiste - Musicien</p>
-                <div class="hero-buttons">
+            <div class="hero-content fade-in" data-parallax-speed="10">
+                <h1 class="hero-title parallax-text" data-parallax-speed="15">Axel Merryl</h1>
+                <p class="hero-subtitle parallax-text" data-parallax-speed="8">Artiste - Musicien</p>
+                <div class="hero-buttons parallax-text" data-parallax-speed="5">
                     <a href="about.html" class="cta-button">Découvrez-moi</a>
                 </div>
             </div>
@@ -639,6 +640,7 @@
         </div>
 
         <script src="js/script.js"></script>
+        <script src="js/hero-parallax.js"></script>
         <script src="js/fixes.js"></script>
     </body>
 </html>
