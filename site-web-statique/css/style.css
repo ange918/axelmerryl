@@ -752,7 +752,7 @@ body {
 }
 
 .slider-dots {
-    display: flex;
+    display: none;
     justify-content: center;
     gap: 0.8rem;
     margin-top: 2rem;
