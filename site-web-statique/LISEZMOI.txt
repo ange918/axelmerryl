@@ -1,0 +1,48 @@
+╔═══════════════════════════════════════════════════════════════╗
+║          INSTRUCTIONS DE DÉPLOIEMENT - SITE WEB STATIQUE       ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Ce dossier contient UNIQUEMENT les fichiers statiques de votre site web
+Axel Merryl, prêts à être uploadés sur votre hébergeur web.
+
+📁 CONTENU DU DOSSIER :
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Fichiers HTML :
+  • index.html (page d'accueil)
+  • about.html (page à propos)
+  • music.html (page musique)
+  • contact.html (page contact)
+  • temperature-album.html (page album)
+  • admin.html (page admin)
+
+✓ Dossier css/ : Tous les styles CSS
+✓ Dossier js/ : Tous les scripts JavaScript
+✓ Dossier attached_assets/ : Images, vidéos et médias
+
+🚀 ÉTAPES DE DÉPLOIEMENT :
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Connectez-vous à votre hébergeur via FTP (FileZilla, cPanel, etc.)
+
+2. Uploadez TOUT le contenu de ce dossier dans le répertoire racine
+   de votre site (généralement : public_html/ ou www/)
+
+3. Assurez-vous que index.html est bien à la racine
+
+4. Vérifiez que tous les dossiers (css, js, attached_assets) sont
+   également uploadés
+
+5. Testez votre site en visitant votre nom de domaine
+
+⚠️  IMPORTANT :
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Ce dossier ne contient AUCUN fichier Python
+• Aucune configuration serveur n'est nécessaire
+• Le site fonctionne comme un site HTML statique standard
+• Compatible avec tout hébergeur web (OVH, o2switch, Hostinger, etc.)
+
+📊 TAILLE TOTALE : ~38 MB
+
+✨ Votre site est prêt à être déployé !

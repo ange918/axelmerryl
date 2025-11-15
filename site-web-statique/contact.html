@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Axel Merryl - Humour & Musique</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">Axel Merryl</span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="about.html" class="nav-link">À Propos</a></li>
+                    <li><a href="music.html" class="nav-link">Musique</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero" style="background-image: url('attached_assets/stock_images/contact_communicatio_f4d3211b.jpg');">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <h1 class="page-title">Contact</h1>
+            <p class="page-subtitle">Entrez en contact avec Axel Merryl</p>
+        </div>
+    </section>
+
+    <section class="contact-section fade-in-scroll">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">Restons Connectés</h2>
+                    <p class="contact-intro">Que vous soyez un fan, un organisateur d'événements ou simplement curieux, n'hésitez pas à me contacter. Je suis toujours ravi d'échanger avec vous !</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon"><i class='bx bx-envelope'></i></div>
+                            <div class="method-info">
+                                <h3>Email</h3>
+                                <a href="mailto:contact@axelmerryl.com">contact@axelmerryl.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon"><i class='bx bx-microphone'></i></div>
+                            <div class="method-info">
+                                <h3>Booking</h3>
+                                <a href="mailto:booking@axelmerryl.com">booking@axelmerryl.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon"><i class='bx bx-share-alt'></i></div>
+                            <div class="method-info">
+                                <h3>Réseaux Sociaux</h3>
+                                <p>Suivez-moi sur Instagram, YouTube et Spotify</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <h3>Suivez l'actualité</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class='bx bxl-youtube'></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Spotify">
+                                <i class='bx bxl-spotify'></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class='bx bxl-facebook'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2 class="section-title">Envoyez un Message</h2>
+
+                    <form class="contact-form" method="POST" action="contact.html">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="booking">Booking / Réservation d'événement</option>
+                                <option value="collaboration">Proposition de collaboration</option>
+                                <option value="media">Demande média / Interview</option>
+                                <option value="fan">Message de fan</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Axel Merryl</h3>
+                    <p>Artiste passionné fusionnant humour et musique pour des performances inoubliables.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="music.html">Musique</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-moi</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Spotify">
+                            <i class='bx bxl-spotify'></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Booking & Management<br>
+                    <a href="mailto:contact@axelmerryl.com">contact@axelmerryl.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Axel Merryl. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
