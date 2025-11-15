@@ -655,7 +655,7 @@ body {
 }
 
 .testimonials-section {
-    padding: 8rem 0;
+    padding: 8rem 0 12rem 0;
     background: var(--color-dark);
     overflow: hidden;
 }
