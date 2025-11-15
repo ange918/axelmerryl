@@ -1,4 +1,4 @@
-/* HERO PARALLAX - Section immersive avec effet parallax */
+/* HERO CINÉMATIQUE - Animations premium */
 
 .hero-section {
     position: relative;
@@ -7,41 +7,28 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    perspective: 1000px;
 }
 
-.hero-image {
+/* Image de fond fixe */
+.hero-fixed-bg {
     position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.1s ease-out;
 }
 
-.hero-image img {
+.hero-fixed-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    animation: heroZoom 20s ease-in-out infinite alternate;
+    object-position: center;
 }
 
-@keyframes heroZoom {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
-}
-
-.parallax-bg {
-    will-change: transform;
-}
-
+/* Overlay avec gradient élégant */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -50,25 +37,22 @@
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(10, 10, 10, 0.8) 0%,
-        rgba(26, 26, 26, 0.6) 100%
+        rgba(10, 10, 10, 0.85) 0%,
+        rgba(26, 26, 26, 0.7) 50%,
+        rgba(10, 10, 10, 0.85) 100%
     );
     pointer-events: none;
 }
 
+/* Conteneur du contenu */
 .hero-content {
     position: relative;
     z-index: 2;
     text-align: center;
     padding: 2rem;
-    transition: transform 0.1s ease-out;
 }
 
-.parallax-text {
-    transition: transform 0.1s ease-out;
-    will-change: transform;
-}
-
+/* Titre principal - Arrive du HAUT */
 .hero-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3rem, 10vw, 8rem);
@@ -78,8 +62,22 @@
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
     text-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+    opacity: 0;
+    transform: translateY(-100px);
 }
 
+.hero-slide-down {
+    animation: slideDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sous-titre - Arrive de la GAUCHE */
 .hero-subtitle {
     font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 300;
@@ -87,29 +85,133 @@
     letter-spacing: 0.3em;
     margin-bottom: 3rem;
     text-transform: uppercase;
+    opacity: 0;
+    transform: translateX(-80px);
 }
 
-/* Responsive - Désactive le parallax souris sur mobile pour de meilleures performances */
+.hero-slide-left {
+    animation: slideLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+
+@keyframes slideLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Boutons - Arrivent du BAS */
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.hero-slide-up {
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styles des boutons */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: linear-gradient(
+        135deg,
+        var(--color-gold) 0%,
+        var(--color-yellow) 100%
+    );
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+}
+
+/* Indicateur de scroll */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0;
+    animation: fadeInScroll 1s ease 2s forwards;
+}
+
+@keyframes fadeInScroll {
+    to {
+        opacity: 1;
+    }
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--color-gold)
+    );
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .hero-image {
-        top: -5%;
-        left: -5%;
-        width: 110%;
-        height: 110%;
+    .hero-title {
+        transform: translateY(-60px);
     }
     
-    .hero-section {
-        perspective: none;
+    .hero-subtitle {
+        transform: translateX(-50px);
+    }
+    
+    .hero-buttons {
+        transform: translateY(40px);
     }
 }
 
+/* Accessibilité - Respecte prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-    .hero-image img {
+    .hero-slide-down,
+    .hero-slide-left,
+    .hero-slide-up {
         animation: none;
+        opacity: 1;
+        transform: none;
     }
     
-    .parallax-bg,
-    .parallax-text {
-        transition: none;
+    .scroll-indicator span {
+        animation: none;
     }
 }
