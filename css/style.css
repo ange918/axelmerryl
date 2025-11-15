@@ -773,6 +773,7 @@ body {
 }
 
 .footer {
+    margin-top: 6rem;
     background: var(--color-anthracite);
     padding: 4rem 0 2rem;
     border-top: 1px solid rgba(212, 175, 55, 0.2);
