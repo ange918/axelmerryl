@@ -443,72 +443,80 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    async function loadDynamicEvents() {
-        try {
-            const response = await fetch('/api/events');
-            const events = await response.json();
+    function loadStaticEvents() {
+        const events = [];
+        
+        const eventsList = document.querySelector('.events-list');
+        if (!eventsList) return;
+        
+        if (events.length === 0) {
+            eventsList.innerHTML = '<p style="color: rgba(245, 245, 220, 0.6); text-align: center; padding: 2rem;">Aucun événement prévu pour le moment</p>';
+            return;
+        }
+        
+        eventsList.innerHTML = events.map(event => {
+            const eventDate = new Date(event.date);
+            const day = eventDate.getDate();
+            const monthNames = ['JAN', 'FÉV', 'MAR', 'AVR', 'MAI', 'JUN', 'JUL', 'AOU', 'SEP', 'OCT', 'NOV', 'DÉC'];
+            const month = monthNames[eventDate.getMonth()];
+            const year = eventDate.getFullYear();
             
-            const eventsList = document.querySelector('.events-list');
-            if (!eventsList) return;
-            
-            if (events.length === 0) {
-                eventsList.innerHTML = '<p style="color: rgba(245, 245, 220, 0.6); text-align: center; padding: 2rem;">Aucun événement prévu pour le moment</p>';
-                return;
-            }
-            
-            eventsList.innerHTML = events.map(event => {
-                const eventDate = new Date(event.date);
-                const day = eventDate.getDate();
-                const monthNames = ['JAN', 'FÉV', 'MAR', 'AVR', 'MAI', 'JUN', 'JUL', 'AOU', 'SEP', 'OCT', 'NOV', 'DÉC'];
-                const month = monthNames[eventDate.getMonth()];
-                const year = eventDate.getFullYear();
-                
-                return `
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="date-day">${day}</span>
-                            <span class="date-month">${month} ${year}</span>
-                        </div>
-                        <div class="event-info">
-                            <h3 class="event-venue">${event.location} - ${event.name}</h3>
-                            <p class="event-time">${event.time}</p>
-                            ${event.description ? `<p class="event-description" style="margin-top: 0.5rem; color: rgba(245, 245, 220, 0.8); font-size: 0.95rem;">${event.description}</p>` : ''}
-                        </div>
-                        ${event.ticket_link ? 
-                            `<a href="${event.ticket_link}" target="_blank" rel="noopener noreferrer" class="event-button">Réserver</a>` :
-                            `<a href="#" class="event-button" onclick="alert('Billetterie bientôt disponible'); return false;">Réserver</a>`
-                        }
+            return `
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">${day}</span>
+                        <span class="date-month">${month} ${year}</span>
                     </div>
-                `;
-            }).join('');
-        } catch (error) {
-            console.error('Error loading events:', error);
-        }
-    }
-
-    async function loadDynamicGallery() {
-        try {
-            const response = await fetch('/api/gallery');
-            const images = await response.json();
-            
-            const carouselTrack = document.querySelector('.carousel-track');
-            if (!carouselTrack) return;
-            
-            if (images.length === 0) {
-                return;
-            }
-            
-            const doubleImages = [...images, ...images];
-            
-            carouselTrack.innerHTML = doubleImages.map(image => `
-                <div class="carousel-slide">
-                    <img src="attached_assets/stock_images/${image.filename}" alt="${image.alt_text}" loading="lazy" />
+                    <div class="event-info">
+                        <h3 class="event-venue">${event.location} - ${event.name}</h3>
+                        <p class="event-time">${event.time}</p>
+                        ${event.description ? `<p class="event-description" style="margin-top: 0.5rem; color: rgba(245, 245, 220, 0.8); font-size: 0.95rem;">${event.description}</p>` : ''}
+                    </div>
+                    ${event.ticket_link ? 
+                        `<a href="${event.ticket_link}" target="_blank" rel="noopener noreferrer" class="event-button">Réserver</a>` :
+                        `<a href="#" class="event-button" onclick="alert('Billetterie bientôt disponible'); return false;">Réserver</a>`
+                    }
                 </div>
-            `).join('');
-        } catch (error) {
-            console.error('Error loading gallery:', error);
-        }
+            `;
+        }).join('');
     }
 
-    loadDynamicEvents();
-    loadDynamicGallery();
+    function loadStaticGallery() {
+        const images = [
+            {filename: '1.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '2.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '3.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '4.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '5.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '6.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '7.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '8.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '9.jpg', alt_text: 'Axel Merryl'},
+            {filename: '10.jpg', alt_text: 'Axel Merryl'},
+            {filename: '11.jpg', alt_text: 'Axel Merryl'},
+            {filename: '12.jpg', alt_text: 'Axel Merryl'},
+            {filename: '13.jpg', alt_text: 'Axel Merryl'},
+            {filename: '14.jpg', alt_text: 'Axel Merryl'},
+            {filename: '15.jpg', alt_text: 'Axel Merryl'},
+            {filename: '16.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '17.jpeg', alt_text: 'Axel Merryl'},
+            {filename: '18.png', alt_text: 'Axel Merryl'},
+            {filename: '19.png', alt_text: 'Axel Merryl'},
+            {filename: '20.png', alt_text: 'Axel Merryl'},
+            {filename: '21.png', alt_text: 'Axel Merryl'}
+        ];
+        
+        const carouselTrack = document.querySelector('.carousel-track');
+        if (!carouselTrack) return;
+        
+        const doubleImages = [...images, ...images];
+        
+        carouselTrack.innerHTML = doubleImages.map(image => `
+            <div class="carousel-slide">
+                <img src="attached_assets/stock_images/${image.filename}" alt="${image.alt_text}" loading="lazy" />
+            </div>
+        `).join('');
+    }
+
+    loadStaticEvents();
+    loadStaticGallery();
