@@ -444,7 +444,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function loadStaticEvents() {
-        const events = [];
+        const events = [
+            {
+                name: 'Concert Live',
+                date: '2025-12-20',
+                location: 'Palais des Congrès',
+                time: '20h00',
+                description: 'Grande soirée musicale avec Axel Merryl en concert exceptionnel',
+                ticket_link: ''
+            },
+            {
+                name: 'Sortie Album "Température"',
+                date: '2026-01-15',
+                location: 'Cotonou',
+                time: '18h30',
+                description: 'Lancement officiel du nouvel album avec showcase privé',
+                ticket_link: ''
+            },
+            {
+                name: 'Festival Afro Beats',
+                date: '2026-02-28',
+                location: 'Stade de l\'Amitié',
+                time: '19h00',
+                description: 'Axel Merryl en tête d\'affiche du plus grand festival de la région',
+                ticket_link: ''
+            }
+        ];
         
         const eventsList = document.querySelector('.events-list');
         if (!eventsList) return;

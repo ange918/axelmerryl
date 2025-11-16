@@ -1,6 +1,7 @@
 import http.server
 import socketserver
 import os
+import socket
 
 PORT = 5000
 
@@ -13,7 +14,10 @@ class NoCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 Handler = NoCacheHTTPRequestHandler
 
-with socketserver.TCPServer(("0.0.0.0", PORT), Handler) as httpd:
+class ReusableTCPServer(socketserver.TCPServer):
+    allow_reuse_address = True
+
+with ReusableTCPServer(("0.0.0.0", PORT), Handler) as httpd:
     print(f"Serveur démarré sur le port {PORT}")
     print(f"Accédez au site via http://0.0.0.0:{PORT}")
     httpd.serve_forever()
