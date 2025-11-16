@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-image');
     const lightboxClose = document.querySelector('.lightbox-close');
@@ -56,7 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxNext = document.querySelector('.lightbox-next');
     
     let currentImageIndex = 0;
-    const galleryImages = Array.from(galleryItems).map(item => item.querySelector('img').src);
+    let galleryImages = [];
+
+    function initializeGalleryLightbox() {
+        const galleryItems = document.querySelectorAll('.carousel-slide img');
+        galleryImages = Array.from(galleryItems).map(img => img.src);
+        
+        galleryItems.forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => showLightbox(index));
+        });
+    }
 
     function showLightbox(index) {
         currentImageIndex = index;
@@ -80,14 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxImg.src = galleryImages[currentImageIndex];
     }
 
-    if (galleryItems.length > 0 && lightbox && lightboxClose) {
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => showLightbox(index));
-        });
-
+    if (lightbox && lightboxClose) {
         lightboxClose.addEventListener('click', closeLightbox);
-        lightboxNext.addEventListener('click', showNextImage);
-        lightboxPrev.addEventListener('click', showPrevImage);
+        if (lightboxNext) lightboxNext.addEventListener('click', showNextImage);
+        if (lightboxPrev) lightboxPrev.addEventListener('click', showPrevImage);
     }
 
     if (lightbox) {
@@ -99,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.addEventListener('keydown', function(e) {
-        if (!lightbox.classList.contains('active')) return;
+        if (!lightbox || !lightbox.classList.contains('active')) return;
         
         if (e.key === 'Escape') {
             closeLightbox();
@@ -541,6 +546,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="attached_assets/stock_images/${image.filename}" alt="${image.alt_text}" loading="lazy" />
             </div>
         `).join('');
+        
+        initializeGalleryLightbox();
     }
 
     loadStaticEvents();
