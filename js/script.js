@@ -59,11 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initializeGalleryLightbox() {
         const galleryItems = document.querySelectorAll('.carousel-slide img');
-        galleryImages = Array.from(galleryItems).map(img => img.src);
+        const allImages = Array.from(galleryItems).map(img => img.src);
+        const halfLength = Math.floor(allImages.length / 2);
+        galleryImages = allImages.slice(0, halfLength);
         
         galleryItems.forEach((img, index) => {
             img.style.cursor = 'pointer';
-            img.addEventListener('click', () => showLightbox(index));
+            img.addEventListener('click', () => showLightbox(index % halfLength));
         });
     }
 
@@ -72,11 +74,21 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxImg.src = galleryImages[index];
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        const carouselTrack = document.querySelector('.carousel-track');
+        if (carouselTrack) {
+            carouselTrack.style.animationPlayState = 'paused';
+        }
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        
+        const carouselTrack = document.querySelector('.carousel-track');
+        if (carouselTrack) {
+            carouselTrack.style.animationPlayState = 'running';
+        }
     }
 
     function showNextImage() {
