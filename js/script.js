@@ -552,3 +552,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadStaticEvents();
     loadStaticGallery();
+
+    // Spotify Player Modal
+    const spotifyModal = document.getElementById('spotify-player-modal');
+    const spotifyPlayerContainer = document.getElementById('spotify-player-container');
+    const spotifyModalClose = document.querySelector('.spotify-modal-close');
+    const spotifyPlayBtns = document.querySelectorAll('.spotify-play-btn');
+
+    function openSpotifyPlayer(trackId) {
+        const embedUrl = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator`;
+        spotifyPlayerContainer.innerHTML = `
+            <iframe 
+                src="${embedUrl}" 
+                width="100%" 
+                height="352" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        `;
+        spotifyModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSpotifyPlayer() {
+        spotifyModal.classList.remove('active');
+        spotifyPlayerContainer.innerHTML = '';
+        document.body.style.overflow = '';
+    }
+
+    if (spotifyPlayBtns.length > 0 && spotifyModal) {
+        spotifyPlayBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const trackItem = this.closest('.track-item');
+                const spotifyId = trackItem.getAttribute('data-spotify-id');
+                if (spotifyId) {
+                    openSpotifyPlayer(spotifyId);
+                }
+            });
+        });
+
+        if (spotifyModalClose) {
+            spotifyModalClose.addEventListener('click', closeSpotifyPlayer);
+        }
+
+        spotifyModal.addEventListener('click', function(e) {
+            if (e.target === spotifyModal) {
+                closeSpotifyPlayer();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && spotifyModal.classList.contains('active')) {
+                closeSpotifyPlayer();
+            }
+        });
+    }

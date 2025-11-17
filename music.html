@@ -300,14 +300,13 @@
                         <div
                             class="track-item"
                             data-track-title="Instant Présent"
-                            data-track-album="Instants Volés">
+                            data-track-album="Instants Volés"
+                            data-spotify-id="17EXh7THykrXZPNKavyBVJ">
                             <div class="track-number">9</div>
                             <div class="track-play">
-                                <a
-                                    href="https://youtu.be/ZsFL9IqHzbA"
-                                    class="track-play-btn"
-                                    >▶</a
-                                >
+                                <button class="track-play-btn spotify-play-btn">
+                                    <i class="bx bxl-spotify"></i>
+                                </button>
                             </div>
                             <div class="track-info-wrapper">
                                 <div class="track-title-name">
@@ -464,6 +463,17 @@
                 </div>
             </div>
         </footer>
+
+        <div id="spotify-player-modal" class="spotify-modal">
+            <div class="spotify-modal-content">
+                <button class="spotify-modal-close">&times;</button>
+                <div class="spotify-modal-header">
+                    <i class="bx bxl-spotify"></i>
+                    <h3>Lecture Spotify</h3>
+                </div>
+                <div id="spotify-player-container"></div>
+            </div>
+        </div>
 
         <script src="js/script.js"></script>
     </body>
