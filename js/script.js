@@ -63,17 +63,45 @@ document.addEventListener('DOMContentLoaded', function() {
         const halfLength = Math.floor(allImages.length / 2);
         galleryImages = allImages.slice(0, halfLength);
         
+        console.log('Gallery initialized with', galleryImages.length, 'unique images');
+        
         galleryItems.forEach((img, index) => {
             img.style.cursor = 'pointer';
-            img.addEventListener('click', () => showLightbox(index % halfLength));
+            img.addEventListener('click', () => {
+                const actualIndex = index % halfLength;
+                showLightbox(actualIndex);
+            });
         });
     }
 
     function showLightbox(index) {
+        if (!galleryImages || galleryImages.length === 0) {
+            console.error('Gallery images not loaded');
+            return;
+        }
+        
+        if (index < 0 || index >= galleryImages.length) {
+            console.error('Invalid index:', index);
+            return;
+        }
+        
         currentImageIndex = index;
-        lightboxImg.src = galleryImages[index];
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        const imageSrc = galleryImages[index];
+        
+        if (!imageSrc || imageSrc === 'undefined') {
+            console.error('Invalid image source at index:', index);
+            return;
+        }
+        
+        if (lightboxImg) {
+            lightboxImg.src = imageSrc;
+            console.log('Showing image:', imageSrc);
+        }
+        
+        if (lightbox) {
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
         
         const carouselTrack = document.querySelector('.carousel-track');
         if (carouselTrack) {
@@ -92,13 +120,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showNextImage() {
+        if (!galleryImages || galleryImages.length === 0) return;
         currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-        lightboxImg.src = galleryImages[currentImageIndex];
+        const imageSrc = galleryImages[currentImageIndex];
+        if (imageSrc && imageSrc !== 'undefined' && lightboxImg) {
+            lightboxImg.src = imageSrc;
+        }
     }
 
     function showPrevImage() {
+        if (!galleryImages || galleryImages.length === 0) return;
         currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-        lightboxImg.src = galleryImages[currentImageIndex];
+        const imageSrc = galleryImages[currentImageIndex];
+        if (imageSrc && imageSrc !== 'undefined' && lightboxImg) {
+            lightboxImg.src = imageSrc;
+        }
     }
 
     if (lightbox && lightboxClose) {
