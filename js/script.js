@@ -555,36 +555,41 @@ document.addEventListener('DOMContentLoaded', function() {
     loadStaticEvents();
     loadStaticGallery();
 
-    // Spotify Player Modal
-    const spotifyModal = document.getElementById('spotify-player-modal');
-    const spotifyPlayerContainer = document.getElementById('spotify-player-container');
-    const spotifyModalClose = document.querySelector('.spotify-modal-close');
-    const spotifyPlayBtns = document.querySelectorAll('.spotify-play-btn');
+    // Sticky Music Player
+    const stickyPlayer = document.getElementById('sticky-player');
+    const playerContainer = document.getElementById('player-iframe-container');
+    const playerCloseBtn = document.querySelector('.player-close-btn');
 
-    function openSpotifyPlayer(trackId) {
-        const embedUrl = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator`;
-        spotifyPlayerContainer.innerHTML = `
+    function playTrack(spotifyId) {
+        const embedUrl = `https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator`;
+        playerContainer.innerHTML = `
             <iframe 
                 src="${embedUrl}" 
                 width="100%" 
-                height="352" 
+                height="152" 
                 frameBorder="0" 
                 allowfullscreen="" 
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                 loading="lazy">
             </iframe>
         `;
-        spotifyModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        if (stickyPlayer) {
+            stickyPlayer.classList.add('active');
+        }
     }
 
-    function closeSpotifyPlayer() {
-        spotifyModal.classList.remove('active');
-        spotifyPlayerContainer.innerHTML = '';
-        document.body.style.overflow = '';
+    function closePlayer() {
+        if (stickyPlayer) {
+            stickyPlayer.classList.remove('active');
+            setTimeout(() => {
+                playerContainer.innerHTML = '';
+            }, 400);
+        }
     }
 
-    if (spotifyPlayBtns.length > 0 && spotifyModal) {
+    // Music page - Spotify play buttons (titres populaires)
+    const spotifyPlayBtns = document.querySelectorAll('.spotify-play-btn');
+    if (spotifyPlayBtns.length > 0) {
         spotifyPlayBtns.forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -592,29 +597,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const trackItem = this.closest('.track-item');
                 const spotifyId = trackItem.getAttribute('data-spotify-id');
                 if (spotifyId) {
-                    openSpotifyPlayer(spotifyId);
+                    playTrack(spotifyId);
                 }
             });
         });
-
-        if (spotifyModalClose) {
-            spotifyModalClose.addEventListener('click', closeSpotifyPlayer);
-        }
-
-        spotifyModal.addEventListener('click', function(e) {
-            if (e.target === spotifyModal) {
-                closeSpotifyPlayer();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && spotifyModal.classList.contains('active')) {
-                closeSpotifyPlayer();
-            }
-        });
     }
 
-    // Simple Spotify Play Buttons for Album Page
+    // Album page - Track play buttons
     const albumPlayBtns = document.querySelectorAll('.track-play-btn-spotify');
     if (albumPlayBtns.length > 0) {
         albumPlayBtns.forEach(btn => {
@@ -623,8 +612,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 const track = this.closest('.playlist-track');
                 const spotifyUrl = track.getAttribute('data-spotify-url');
                 if (spotifyUrl) {
-                    window.open(spotifyUrl, '_blank');
+                    // Extraire l'ID Spotify de l'URL
+                    const spotifyId = spotifyUrl.split('/track/')[1].split('?')[0];
+                    playTrack(spotifyId);
                 }
             });
         });
     }
+
+    // Close player button
+    if (playerCloseBtn) {
+        playerCloseBtn.addEventListener('click', closePlayer);
+    }
+
+    // Close player with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && stickyPlayer && stickyPlayer.classList.contains('active')) {
+            closePlayer();
+        }
+    });

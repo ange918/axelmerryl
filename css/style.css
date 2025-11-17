@@ -2934,50 +2934,36 @@ body {
     background: rgba(0, 0, 0, 0.2);
 }
 
-/* Spotify Player Modal Styles */
-.spotify-modal {
-    display: none;
+/* Sticky Music Player */
+.sticky-music-player {
     position: fixed;
-    z-index: 3000;
+    bottom: -400px;
     left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    animation: fadeIn 0.3s ease;
+    right: 0;
+    z-index: 3000;
+    background: linear-gradient(180deg, #191414 0%, #0a0a0a 100%);
+    border-top: 3px solid #1DB954;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1rem;
 }
 
-.spotify-modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+.sticky-music-player.active {
+    bottom: 0;
 }
 
-.spotify-modal-content {
-    background: linear-gradient(135deg, #1DB954 0%, #191414 100%);
-    border: 2px solid #1DB954;
-    border-radius: 20px;
-    max-width: 500px;
-    width: 100%;
-    padding: 2rem;
-    position: relative;
-    animation: slideIn 0.3s ease;
-    box-shadow: 0 20px 60px rgba(29, 185, 84, 0.3);
-}
-
-.spotify-modal-close {
+.player-close-btn {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    font-size: 2rem;
-    color: #1DB954;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
     border: none;
-    cursor: pointer;
-    width: 35px;
-    height: 35px;
+    color: #1DB954;
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2985,38 +2971,13 @@ body {
     z-index: 10;
 }
 
-.spotify-modal-close:hover {
+.player-close-btn:hover {
     background: #1DB954;
     color: #191414;
     transform: rotate(90deg);
 }
 
-.spotify-modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.spotify-modal-header i {
-    font-size: 2.5rem;
-    color: #1DB954;
-}
-
-.spotify-modal-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #fff;
-    margin: 0;
-}
-
-#spotify-player-container {
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-#spotify-player-container iframe {
+#player-iframe-container iframe {
     width: 100%;
     border-radius: 12px;
 }
@@ -3056,21 +3017,8 @@ body {
         background: rgba(26, 26, 26, 0.95);
     }
     
-    .spotify-modal.active {
-        padding: 1rem;
-    }
-    
-    .spotify-modal-content {
-        padding: 1.5rem;
-        max-width: 95%;
-    }
-    
-    .spotify-modal-header h3 {
-        font-size: 1.4rem;
-    }
-    
-    .spotify-modal-header i {
-        font-size: 2rem;
+    .sticky-music-player {
+        padding: 0.5rem;
     }
     
     .footer-credit p {
