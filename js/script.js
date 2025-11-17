@@ -547,7 +547,9 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `).join('');
         
-        initializeGalleryLightbox();
+        if (typeof initializeGalleryLightbox === 'function') {
+            initializeGalleryLightbox();
+        }
     }
 
     loadStaticEvents();
@@ -609,5 +611,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Escape' && spotifyModal.classList.contains('active')) {
                 closeSpotifyPlayer();
             }
+        });
+    }
+
+    // Simple Spotify Play Buttons for Album Page
+    const albumPlayBtns = document.querySelectorAll('.track-play-btn-spotify');
+    if (albumPlayBtns.length > 0) {
+        albumPlayBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const track = this.closest('.playlist-track');
+                const spotifyUrl = track.getAttribute('data-spotify-url');
+                if (spotifyUrl) {
+                    window.open(spotifyUrl, '_blank');
+                }
+            });
         });
     }
